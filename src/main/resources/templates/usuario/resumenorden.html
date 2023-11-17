@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+
+    <head
+        <meta charset="utf-8">
+        <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+        <title>Nonna's Pizza</title>
+        <meta content="" name="description">
+        <meta content="" name="keywords">
+
+        <!-- Icono de la Pagina -->
+        <link href="pizza-favicon.ico" rel="icon">
+        <link href="pizza-favicon.ico" rel="apple-touch-icon">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+        <link href='https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css' rel='stylesheet'>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/glightbox/dist/css/glightbox.min.css"/>
+        <link
+            rel="stylesheet"
+            href="https://unpkg.com/swiper@8/swiper-bundle.min.css"
+            />
+        <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+            />
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+                integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+        crossorigin="anonymous"></script>
+        <!-- Google Fonts -->
+        <link
+            href="https://fonts.googleapis.com/css?family=Poppins:300,300i,400,400i,600,600i,700,700i|Satisfy|Comic+Neue:300,300i,400,400i,700,700i"
+            rel="stylesheet">
+
+        <!-- Custom styles for this template -->
+        <link href="../style.css" rel="stylesheet">
+    </head>
+
+    <body>
+        <!-- Page Content -->
+        <div class="container">
+            <!-- Page Heading/Breadcrumbs -->
+            <h1 class="mt-4 mb-3 title-productos">
+                Nonna's <small>Resumen de la orden</small>
+            </h1>
+
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a class="home-text" th:href="@{/}">Home</a></li>
+                <li class="breadcrumb-item active producto-link">Orden</li>
+            </ol>
+
+            <!-- Blog Post -->
+            <div class="card mb-4">
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-lg-9">
+                            <div class="card-body">
+                                <h5 class="card-title1">
+                                    DATOS ORDEN
+                                </h5>
+                                <h6 class="titulo-orden" th:text=" 'Nombre: '+ ${usuario.nombre}"> </h6>
+                                <h6 class="titulo-orden" th:text="'Correo: '+  ${usuario.email}"></h6>
+                                <h6 class="titulo-orden" th:text="'Dirección: '+ ${usuario.direccion}" ></h6>
+                                <h5 class="card-title1" style="text-align: center">
+                                    PRODUCTOS
+                                </h5>
+                                <div class="alert alert-light" role="alert">
+                                    <table class="table" style="text-align: center">
+                                        <thead>
+                                            <tr>
+                                                <th scope="col">Producto</th>
+                                                <th scope="col">Precio</th>
+                                                <th scope="col">Cantidad</th>
+                                                <th scope="col">Total</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr th:each="dtorden:${cart}">
+                                                <td th:text="${dtorden.nombre}"></td>
+                                                <td th:text="${dtorden.precio}"></td>
+                                                <td th:text="${dtorden.cantidad}"></td>
+                                                <td th:text="${dtorden.total}"></td>
+
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+
+                            </div>
+                        </div>
+
+
+                        <div class="col-lg-3">
+                            <h2 class="card-title1" style="text-align: center">Resumen Orden</h2>
+
+                            <ul class="list-group">
+                                <li class="list-group-item" style="text-align: center"><h5 class="titulo-orden" th:text=" 'Total: '+ ${orden.total} "> </h5></li>
+                                <a th:href="@{saveOrder}" class="btn btn-dark"><i class="bi bi-journal-text generar-icon"></i>Generar</a>
+                                <div id="InfoBanner">
+                                    <span class="reversed reversedRight">
+                                        <span>
+                                            &#9888;
+                                        </span>
+                                    </span>
+                                    <span class="reversed reversedLeft">
+                                        Entrega de pedidos: Limite 24 horas !!
+                                    </span> 
+                                </div>
+                            </ul> 
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- /.container -->
+
+        <footer id="footer">
+            <div class="container">
+                <h3>Nonna's Pizza</h3>
+                <p>Deléitate con nuestras irresistibles pizzas y descubre un mundo de sabores en cada rebanada.</p>
+                <div class="social-links">
+                    <a href="https://www.facebook.com/pizzerianonnas/" class="facebook"><i class="bx bxl-facebook"></i></a>
+                </div>
+                <div class="copyright">
+                    &copy; Copyright <strong><span>Nonna's Pizza</span></strong>. All Rights Reserved
+                </div>
+                <div class="credits">
+                    <!-- All the links in the footer should remain intact. -->
+                    <!-- You can delete the links only if you purchased the pro version. -->
+                    <!-- Licensing information: https://bootstrapmade.com/license/ -->
+                    <!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/delicious-free-restaurant-bootstrap-theme/ -->
+                    Designed by <a href="https://www.youtube.com/watch?v=jWIBEyT70-E">Grupo 2 - Capstone</a>
+                </div>
+            </div>
+        </footer>
+
+        <script src="main.js"></script>
+
+    </body>
+
+</html>

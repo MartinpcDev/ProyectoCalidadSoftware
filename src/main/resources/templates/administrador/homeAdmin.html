@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+
+    <head>
+        <meta charset="utf-8">
+        <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+        <title>Nonna's Pizza</title>
+        <meta content="" name="description">
+        <meta content="" name="keywords">
+
+        <!-- Icono de la Pagina -->
+        <link href="pizza-favicon.ico" rel="icon">
+        <link href="pizza-favicon.ico" rel="apple-touch-icon">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.2/font/bootstrap-icons.css">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+              integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+        <link href='https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css' rel='stylesheet'>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/glightbox/dist/css/glightbox.min.css"/>
+        <link
+            rel="stylesheet"
+            href="https://unpkg.com/swiper@8/swiper-bundle.min.css"
+            />
+        <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+            />
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+                integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+        crossorigin="anonymous"></script>
+        <!-- Google Fonts -->
+        <link
+            href="https://fonts.googleapis.com/css?family=Poppins:300,300i,400,400i,600,600i,700,700i|Satisfy|Comic+Neue:300,300i,400,400i,700,700i"
+            rel="stylesheet">
+
+        <!-- Custom styles for this template -->
+        <link href="style.css" rel="stylesheet">
+    </head>
+    <body>
+        <!-- ======= Top Bar ======= -->
+        <section id="topbar" class="d-flex align-items-center fixed-top topbar-transparent">
+            <div class="container-fluid container-xl d-flex align-items-center justify-content-center justify-content-lg-start">
+                <i class="bi bi-phone d-flex align-items-center"><span>945 264 629</span></i>
+                <i class="bi bi-clock ms-4 d-none d-lg-flex align-items-center"><span>Toda la semana: 4 PM a 10:30 PM</span></i>
+            </div>
+        </section>
+
+
+        <header id="header" class="fixed-top d-flex align-items-center header-transparent">
+            <div class="container-fluid container-xl d-flex align-items-center justify-content-between">
+
+                <div class="logo me-auto">
+                    <h1><a th:href="@{/administrador}"><img src="logo-nonna.png" style="padding: 0 10px;">Nonna's Pizza</a></h1>
+                    <!-- Uncomment below if you prefer to use an image logo -->
+                    <!-- <a href="index.html"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
+                </div>
+
+                <nav id="navbar" class="navbar order-last order-lg-0">
+                    <ul>
+                        <li><a class="nav-link scrollto active" href="#hero">Home</a></li>
+                        <li><a class="nav-link scrollto" href="#about">Acerca de</a></li>
+                        <li><a class="nav-link scrollto" href="#portfolio">Productos</a></li>
+                        <li><a class="nav-link scrollto" href="#events">Iniciativas</a></li>
+                        <li><a class="nav-link scrollto" href="#gallery">Local</a></li>
+                        <li class="dropdown"><a href="#"><i class="bi bi-person-check-fill"></i><span>Admin Activo</span> <i class="bi bi-chevron-down"></i></a>
+                            <ul>
+
+                                <li><a th:href="@{/productos}">Productos</a></li>
+                                <li><a th:href="@{/administrador/usuarios}">Usuarios</a></li>
+                                <li><a th:href="@{/administrador/ordenes}">Ordenes</a></li>
+                                <li><a th:href="@{/administrador/contactanos}">Contactanos</a></li>
+                                <li><a th:href="@{/administrador/reportes}">Reportes</a></li>
+                                <li><a th:href="@{/usuario/cerrar}">Cerrar Sesion</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                    <i class="bi bi-list mobile-nav-toggle"></i>
+                </nav><!-- .navbar -->
+            </div>
+        </header><!-- End Header -->
+
+        <!-- ======= Hero Section ======= -->
+        <section id="hero">
+            <div class="hero-container">
+                <div id="heroCarousel" data-bs-interval="5000" class="carousel slide carousel-fade" data-bs-ride="carousel">
+
+                    <ol class="carousel-indicators" id="hero-carousel-indicators"></ol>
+
+                    <div class="carousel-inner" role="listbox">
+
+                        <!-- Slide 1 -->
+                        <div class="carousel-item active" style="background-image: url(banner.jpg);">
+                            <div class="carousel-container">
+                                <div class="carousel-content">
+                                    <h2 class="animate__animated animate__fadeInDown"><span>Bienvenido</span> al reino de la pizza</h2>
+                                    <p class="animate__animated animate__fadeInUp">Del horno a tu paladar, la pizza perfecta para disfrutar sin parar.</p>
+                                    <div>
+                                        <a href="#portfolio" class="btn-menu animate__animated animate__fadeInUp scrollto">Nuestros Productos</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Slide 2 -->
+                        <div class="carousel-item" style="background-image: url(banner.jpg);">
+                            <div class="carousel-container">
+                                <div class="carousel-content">
+                                    <h2 class="animate__animated animate__fadeInDown"><span>Deléitate</span> con nuestras creaciones de pizza</h2>
+                                    <p class="animate__animated animate__fadeInUp">Un mundo de sabores se despliega en nuestras irresistibles pizzas.</p>
+                                    <div>
+                                        <a href="#portfolio" class="btn-menu animate__animated animate__fadeInUp scrollto">Nuestros Productos</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Slide 3 -->
+                        <div class="carousel-item" style="background-image: url(banner.jpg);">
+                            <div class="carousel-container">
+                                <div class="carousel-content">
+                                    <h2 class="animate__animated animate__fadeInDown">El <span>paraíso</span> de los amantes de la pizza</h2>
+                                    <p class="animate__animated animate__fadeInUp">¿Eres amante de la pizza?<br>Aquí encontrarás el paraíso en cada bocado</p>
+                                    <div>
+                                        <a href="#portfolio" class="btn-menu animate__animated animate__fadeInUp scrollto">Nuestros Productos</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    <a class="carousel-control-prev" href="#heroCarousel" role="button" data-bs-slide="prev">
+                        <span class="carousel-control-prev-icon bi bi-chevron-left" aria-hidden="true"></span>
+                    </a>
+
+                    <a class="carousel-control-next" href="#heroCarousel" role="button" data-bs-slide="next">
+                        <span class="carousel-control-next-icon bi bi-chevron-right" aria-hidden="true"></span>
+                    </a>
+
+                </div>
+            </div>
+        </section><!-- End Hero -->
+
+        <!-- ======= About Section ======= -->
+        <section id="about" class="about">
+            <div class="container-fluid">
+
+                <div class="row">
+
+                    <div class="col-lg-5 align-items-stretch video-box"
+                         style='background-image: url("fdp.png");'>
+                    </div>
+
+                    <div class="col-lg-7 d-flex flex-column justify-content-center align-items-stretch">
+
+                        <div class="content">
+                            <h3>Nuestra Historia - <strong>Quienes Somos</strong></h3>
+                            <p>
+                                En nuestra pizzería somos amantes de la auténtica pizza italiana. 
+                                Estamos orgullosos de ofrecer a nuestros clientes una experiencia culinaria única, de calidad y pasión por la pizza. 
+                                Con años de experiencia en el sector de la restauración, nuestro equipo está comprometido con la excelencia y la satisfacción 
+                                de los gustos más exigentes. Trayendoer la auténtica pizza a su mesa usando solo lo mejor de nuestros insumos.
+                            </p>
+                            <h3>Vision</h3>
+                            <ul>
+                                <li><i class="bx bx-check-double"></i>
+                                    Nuestra visión es ser la pizzería de referencia en nuestra ciudad, 
+                                    reconocida por la calidad de nuestras pizzas y excelente servicio al cliente. 
+                                    Nos esforzamos por ser el lugar para disfrutar de una auténtica experiencia italiana donde la calidad de nuestros ingredientes, 
+                                    la atención al detalle y la pasión por la comida se reflejan en cada bocado. Nos esforzamos por ser reconocidos 
+                                    como una empresa sostenible comprometida con nuestra comunidad local.</li>
+                            </ul>
+                            <h3>Mision</h3>
+                            <ul>
+                                <li><i class="bx bx-check-double"></i>
+                                    Nuestra misión es deleitar a los clientes con la mejor pizza de la ciudad. 
+                                    Nos esforzamos por ofrecer una gama de experiencias de sabor auténticas y variadas con ingredientes frescos y de calidad. 
+                                    Trabajamos en equipo con dedicación y pasión, elaborando cada pizza con amor y atención al detalle. 
+                                    Nuestro objetivo es superar las expectativas de nuestros clientes brindándoles un ambiente cálido y un servicio amable y eficiente.
+                                </li>
+                            </ul>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+        </section><!-- End About Section -->
+
+        <!-- Page Content -->
+        <!-- Page Content -->
+        <section id="portfolio" class="portfolio">
+            <div class="container">
+                <!-- Jumbotron Header -->
+                <header class="jumbotron my-4">
+                    <h1 class="display-3 text-product">Nuestros de Productos</h1>
+                </header>
+
+                <div class="row portfolio-container">
+
+                    <div class="col-lg-4 col-md-6 portfolio-item" style="text-align: center; display: flex; flex-wrap: wrap; gap: 8px" th:each="producto: ${productos}">
+                        <img th:src="@{/images/{img} (img=${producto.imagen})} " style="width: 400px; height: 320px" class="img-fluid" alt="">
+                        <div class="portfolio-info">
+                            <h4 th:text="${producto.nombre}"></h4>
+                            <h4 th:text="${producto.descripcion}"></h4>
+                            <a th:href="@{/images/{img} (img=${producto.imagen})}" th:title= "${producto.nombre}" data-gallery="portfolioGallery"
+                               class="portfolio-lightbox preview-link"><i class="bx bx-plus"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ======= Events Section ======= -->
+        <section id="events" class="events">
+            <div class="container">
+
+                <div class="section-title">
+                    <h2>Conoce algunas <span>iniciativas</span> de la Empresa</h2>
+                </div>
+
+                <!-- Noticia 1 -->
+                <div class="events-slider swiper">
+                    <div class="swiper-wrapper">
+
+                        <div class="swiper-slide">
+                            <div class="row event-item">
+                                <div class="col-lg-6">
+                                    <img src="noticia1.png" class="img-fluid" alt="">
+                                </div>
+                                <div class="col-lg-6 pt-4 pt-lg-0 content">
+                                    <h3>Ingredientes seleccionados para sabores inigualables</h3>
+                                    <div class="price">
+                                        <p><span>Calidad Suprema</span></p>
+                                    </div>
+                                    <p class="fst-italic">
+                                        En nuestra pizzería, nos dedicamos a ofrecerte la más alta calidad en cada uno de nuestros productos. 
+                                        Nos enorgullece utilizar ingredientes frescos y de primera calidad en nuestras pizzas.
+                                    </p>
+                                    <ul>
+                                        <li><i class="bi bi-check-circle"></i> Nos esforzamos por ofrecerte la mejor calidad en cada rebanada de pizza.</li>
+                                        <li><i class="bi bi-check-circle"></i> Cada pizza es una obra maestra de sabores auténticos y excelencia culinaria.</li>
+                                        <li><i class="bi bi-check-circle"></i> La calidad es nuestra firma: pizzas que te harán volver por más.</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div><!-- End testimonial item -->
+
+                        <!-- Noticia 2 -->
+                        <div class="swiper-slide">
+                            <div class="row event-item">
+                                <div class="col-lg-6">
+                                    <img src="noticia2.png" class="img-fluid" alt="">
+                                </div>
+                                <div class="col-lg-6 pt-4 pt-lg-0 content">
+                                    <h3>El cuidado de nuestros clientes y trabajadores es primero</h3>
+                                    <div class="price">
+                                        <p><span>Nuestra Seguridad</span></p>
+                                    </div>
+                                    <p class="fst-italic">
+                                        En nuestra empresa, la seguridad es nuestras prioridades. 
+                                        Nos preocupamos por brindar un entorno seguro y protegido para todos nuestros clientes y empleados.
+                                    </p>
+                                    <ul>
+                                        <li><i class="bi bi-check-circle"></i> Valoramos tu seguridad y nos esforzamos por mantener un ambiente tranquilo y protegido.</li>
+                                        <li><i class="bi bi-check-circle"></i> Estamos comprometidos en proporcionar un entorno seguro para ti y tus seres queridos.</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div><!-- End testimonial item -->
+
+                    </div>
+                    <div class="swiper-pagination"></div>
+                </div>
+
+            </div>
+        </section><!-- End Events Section -->
+
+        <!-- ======= Gallery Section ======= -->
+        <section id="gallery" style="padding-bottom: 50px;" class="gallery">
+            <div class="container-fluid">
+
+                <div class="section-title">
+                    <h2>Fotos de <span>Nuestro Local</span></h2>
+                    <p>Ven y descubre el encanto que se esconde tras nuestras puertas: 
+                        un lugar donde la pasión por la pizza se combina con un ambiente acogedor y sabores inolvidables.</p>
+                </div>
+
+                <div class="row g-0">
+
+                    <div class="col-lg-3 col-md-4">
+                        <div class="gallery-item">
+                            <a href="instalaciones1.jpg" class="gallery-lightbox">
+                                <img src="instalaciones1.jpg" alt="" class="img-fluid">
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-3 col-md-4">
+                        <div class="gallery-item">
+                            <a href="instalaciones2.jpg" class="gallery-lightbox">
+                                <img src="instalaciones2.jpg" alt="" class="img-fluid">
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-3 col-md-4">
+                        <div class="gallery-item">
+                            <a href="instalaciones3.jpg" class="gallery-lightbox">
+                                <img src="instalaciones3.jpg" alt="" class="img-fluid">
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-3 col-md-4">
+                        <div class="gallery-item">
+                            <a href="instalaciones4.jpg" class="gallery-lightbox">
+                                <img src="instalaciones4.jpg" alt="" class="img-fluid">
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section><!-- End Gallery Section -->
+
+                <!-- ======= Contact Section ======= -->
+                <section id="contact" class="contact">
+                    <div class="container">
+        
+                        <div class="section-title">
+                            <h2><span>Contactenos</span></h2>
+                            <p>Para que seamos capaces de alcanzar los placeres y placeres de la vida.</p>
+                        </div>
+                    </div>
+        
+                    <div class="map">
+                        <iframe style="border:0; width: 100%; height: 350px;"
+                                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d398.6282012674229!2d-77.0785118309582!3d-11.937201542405584!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9105d1c21c0f48fb%3A0xf7447d7a132319a0!2sLa%20Honradez%20780%2C%20Los%20Olivos%2015307!5e0!3m2!1ses-419!2spe!4v1686181641665!5m2!1ses-419!2spe"
+                                frameborder="0" allowfullscreen></iframe>
+        
+                    </div>
+        
+                    <div class="container mt-5">
+        
+                        <div class="info-wrap">
+                            <div class="row">
+                                <div class="col-lg-3 col-md-6 info">
+                                    <i class="bi bi-geo-alt"></i>
+                                    <h4>Ubicacion:</h4>
+                                    <p>Jr. Honradez 780 Pro <br> Los Olivos</p>
+                                </div>
+        
+                                <div class="col-lg-3 col-md-6 info mt-4 mt-lg-0">
+                                    <i class="bi bi-clock"></i>
+                                    <h4>Horas de Trabajo:</h4>
+                                    <p>Toda la semana: 4PM a 10:30PM</p>
+                                </div>
+        
+                                <div class="col-lg-3 col-md-6 info mt-4 mt-lg-0">
+                                    <i class="bi bi-envelope"></i>
+                                    <h4>Email:</h4>
+                                    <p>nonnaspizza.ventas@gmail.com</p>
+                                </div>
+        
+                                <div class="col-lg-3 col-md-6 info mt-4 mt-lg-0">
+                                    <i class="bi bi-phone"></i>
+                                    <h4>Telefono:</h4>
+                                    <p>945 264 629</p>
+                                </div>
+                            </div>
+                        </div>
+        
+                        <form th:action="@{/usuario/guardarContacto}" method="post" role="form">
+                            <div class="row">
+                                <div class="col-md-6 form-group">
+                                    <input type="text" name="nombre" class="form-control" id="nombre" placeholder="Ingrese su nombre" required>
+                                </div>
+                                <div class="col-md-6 form-group mt-3 mt-md-0">
+                                    <input type="email" class="form-control" name="email" id="email" placeholder="Ingrese su correo" required>
+                                </div>
+                            </div>
+                            <div class="form-group mt-3">
+                                <input type="text" class="form-control" name="asunto" id="asunto" placeholder="Asunto" required>
+                            </div>
+                            <div class="form-group mt-3">
+                                <textarea class="form-control" name="mensaje" rows="5" placeholder="Mensaje" required></textarea>
+                            </div>
+                            <div class="text-center" style="padding: 10px 0;"><button class="btn-mensaje" type="submit"><i class="bi bi-envelope-check-fill" style="padding: 5px 5px;"></i>Enviar Mensaje</button></div>
+                        </form>
+        
+                    </div>
+                </section><!-- End Contact Section -->
+
+        <!-- ======= Footer ======= -->
+        <footer id="footer">
+            <div class="container">
+                <h3>Nonna's Pizza</h3>
+                <p>Deléitate con nuestras irresistibles pizzas y descubre un mundo de sabores en cada rebanada.</p>
+                <div class="social-links">
+                    <a href="https://www.facebook.com/pizzerianonnas/" class="facebook"><i class="bx bxl-facebook"></i></a>
+                </div>
+                <div class="copyright">
+                    &copy; Copyright <strong><span>Nonna's Pizza</span></strong>. All Rights Reserved
+                </div>
+                <div class="credits">
+                    <!-- All the links in the footer should remain intact. -->
+                    <!-- You can delete the links only if you purchased the pro version. -->
+                    <!-- Licensing information: https://bootstrapmade.com/license/ -->
+                    <!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/delicious-free-restaurant-bootstrap-theme/ -->
+                    Designed by <a href="https://www.youtube.com/watch?v=jWIBEyT70-E">Grupo 2 - Capstone</a>
+                </div>
+            </div>
+        </footer><!-- End Footer -->
+
+        <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i
+                class="bi bi-arrow-up-short"></i></a>
+
+        <!-- Vendor JS Files -->
+        <script src="https://cdn.jsdelivr.net/gh/mcstudios/glightbox/dist/js/glightbox.min.js"></script>
+        <script src="https://unpkg.com/isotope-layout@3/dist/isotope.pkgd.min.js"></script>
+        <script src="https://unpkg.com/swiper@8/swiper-bundle.min.js"></script>
+
+        <!-- Template Main JS File -->
+        <script src="main.js"></script>
+    </body>
+</html>

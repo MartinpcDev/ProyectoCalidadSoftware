@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+    <head>
+
+        <meta charset="utf-8">
+        <meta content="width=device-width, initial-scale=1.0" name="viewport">
+        <!-- Icono de la Pagina -->
+        <link href="../pizza-favicon.ico" rel="icon">
+        <link href="../pizza-favicon.ico" rel="apple-touch-icon">
+        <title>Nonna's Pizza</title>
+        <meta content="" name="description">
+        <meta content="" name="keywords">
+
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+        <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,700&display=swap" rel="stylesheet">
+        <link href="https://unpkg.com/ionicons@4.5.10-0/dist/css/ionicons.min.css" rel="stylesheet">
+        <!-- Google Fonts -->
+        <link
+            href="https://fonts.googleapis.com/css?family=Poppins:300,300i,400,400i,600,600i,700,700i|Satisfy|Comic+Neue:300,300i,400,400i,700,700i"
+            rel="stylesheet">
+        <link href="../style.css" rel="stylesheet">
+
+    </head>
+
+    <body>
+        <style>
+
+            :root {
+                --color-dark: #15181f;
+                --color-dark-x: #2d343f;
+                --color-dark-xx: #1f232b;
+                --color-light: #ffffff;
+                --color-grey: #f5f6f8;
+            }
+
+            body {
+                font-family: 'Roboto', sans-serif;
+                font-size: 1.1rem;
+                font-weight: 300;
+                background-color: var(--color-grey);
+                color: var(--color-light);
+                letter-spacing: .05rem;
+            }
+
+            .bg-light {
+                background-color: var(--color-light)!important;
+            }
+
+            .bg-dark {
+                background-color: var(--color-dark)!important;
+            }
+
+            .p-6 {
+                padding: 4rem 7rem;
+            }
+
+            .contact-box {
+                padding: 3rem;
+            }
+
+            .btn {
+                font-weight: 400;
+                padding: 1rem 2rem;
+                border-radius: 5rem;
+                min-width: 10rem;
+                background-color: #ffb03b;
+                border-color: #ffb03b;
+                position: relative;
+                right: -116px;
+                font-weight: bold;
+                font-family: cursive;
+                font-size: 17px;
+
+            }
+
+            .btn:hover{
+                background-color: #ffb03b;
+                border-color: #ffb03b;
+            }
+
+            .btn-outline-dark {
+                border: 2px solid var(--color-dark-xx);
+            }
+
+
+            .form-control {
+                background-color: var(--color-dark-xx);
+                border: 2px solid var(--color-dark-xx);
+                border-radius: .2rem;
+                padding: 1.5rem 1rem;
+            }
+
+            .register-bg {
+                background-image: url('../../BannerProductos.jpg');
+                background-size: cover;
+                background-repeat: no-repeat;
+                min-height: 100vh;
+            }
+
+            .testiomonial {
+                bottom: 10px
+            }
+
+            @media (max-width: 575.98px) {
+                .p-6 {
+                    padding: 2rem;
+                }
+
+                .contact-box {
+                    padding: 0;
+                }
+
+                .width-100 {
+                    width: 100%;
+                }
+            }
+
+            @media (max-width: 1200px) {
+                .register-bg {
+                    min-height: 50vh;
+                }
+            }
+        </style>
+
+        <section class="contact-box">
+            <div class="row no-gutters bg-dark">
+                <div class="col-xl-5 col-lg-12 register-bg">
+
+                </div>
+                <div class="col-xl-7 col-lg-12 d-flex">
+                    <div class="container align-self-center p-6">
+                        <h1 class="font-weight-bold mb-3">Actualizar un Producto</h1>
+                        <p class="text-muted mb-5">Revise la informacion para poder actualizar el producto que necesita.</p>
+
+                        <form th:action="@{/productos/update}" method="post"  enctype="multipart/form-data">
+                            <input type="hidden" name="id" th:value="${producto.id}">
+                            <div class="form-row mb-2">
+                                <div class="form-group col-md-6">
+                                    <label class="font-weight-bold" for="nombre">Nombre Producto <span class="text-danger">*</span></label>
+                                    <input type="text" class="form-control" id="nombre" name="nombre" placeholder="El nombre del producto" required autocomplete="off" th:value="${producto.nombre}">
+                                </div>
+                                <div class="form-group col-md-6">
+                                    <label class="font-weight-bold" for="cantidad">Stock <span class="text-danger">*</span></label>
+                                    <input type="text" class="form-control" id="cantidad" name="cantidad" placeholder="Stock del producto" th:value="${producto.cantidad}" required autocomplete="off">
+                                </div>
+                            </div>
+                            <div class="form-group mb-3">
+                                <label class="font-weight-bold" for="descripcion">Descripcion <span class="text-danger">*</span></label>
+                                <textarea type="text" class="form-control" id="descripcion" name="descripcion" placeholder="Descripcion del producto" required autocomplete="off" th:text="${producto.descripcion}"></textarea>
+                            </div>
+                            <div class="form-group mb-3">
+                                <label class="font-weight-bold" for="precio">Precio <span class="text-danger">*</span></label>
+                                <input type="text" class="form-control" id="precio" name="precio" placeholder="Precio del producto" th:value="${producto.precio}" required autocomplete="off">
+                            </div>
+                            <div class="form-group mb-3">
+                                <label class="font-weight-bold" for="img">Imagen <span class="text-danger">*</span></label>
+                                <input type="file" class="form-control" id="img" name="img" th:value="${producto.imagen}">
+                            </div>
+                            <div class="form-group mb-5">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox">
+                                    <label class="form-check-label text-muted">Al seleccionar esta casilla aceptas nuestro aviso de privacidad y los términos y condiciones</label>
+                                </div>
+                            </div>
+                            <button class="btn btn-primary width-100 btn-guardar" type="submit">Actualizar</button>
+                            <button class="btn btn-primary width-100 btn-limpiar" type="reset">Reset</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </body>
+
+</html>
